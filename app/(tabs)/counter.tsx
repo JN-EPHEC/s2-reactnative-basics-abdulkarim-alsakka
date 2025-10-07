@@ -1,37 +1,31 @@
-import React, { useState } from "react";
-import { SafeAreaView, StyleSheet, Text } from "react-native";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-export default function HomeScreen() {
-  // Initialize state for the counter with an initial value of 0.
-  const [count, setCount] = useState(0);
+type Props = {
+  text: string;
+};
 
-  // Function to increment the count.
-  const incrementCount = () => {
-    // Write your logic here to increment the count
-  }
-
+export default function TodoItem({ text }: Props) {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Replace this part with your soluce</Text>
-    </SafeAreaView>
+    <View style={styles.item}>
+      <Text style={styles.itemText}>{text}</Text>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f0f0f0",
-    alignItems: "center",
-    justifyContent: "center",
+  item: {
+    backgroundColor: "#fff",
+    padding: 16,
+    borderRadius: 8,
+    marginBottom: 12,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 3,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-  countText: {
-    fontSize: 48,
-    fontWeight: "600",
-    marginVertical: 20,
+  itemText: {
+    fontSize: 16,
   },
 });
